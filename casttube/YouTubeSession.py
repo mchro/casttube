@@ -62,12 +62,12 @@ class QueueHTMLParser(HTMLParser):
 class YouTubeSession(object):
     """ The main logic to interact with YouTube cast api."""
 
-    def __init__(self, screen_id, request_handler=requests):
+    def __init__(self, screen_id, request_handler=None):
         self._screen_id = screen_id
         self._lounge_token = None
         self._gsession_id = None
         self._sid = None
-        self._request_handler = request_handler
+        self._request_handler = request_handler or requests
         self._rid = 0
         self._req_count = 0
         self._bind_data = BIND_DATA
